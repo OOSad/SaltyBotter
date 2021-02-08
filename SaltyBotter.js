@@ -5,6 +5,13 @@
 // @grant       none
 // @version     1.3
 // @author      OSad
+// ==UserScript==
+// @name        SaltyBotter - saltybet.com
+// @namespace   Violentmonkey Scripts
+// @match       https://www.saltybet.com/
+// @grant       none
+// @version     1.4
+// @author      OSad
 // @description 2/2/2021, 6:37:21 PM
 // ==/UserScript==
 
@@ -30,7 +37,7 @@ window.addEventListener('load', function() {
     document.getElementById("footer-alert").style.margin = "-20px 0px 0px 0px";
   
   
-    var intervalID = window.setInterval(myCallback, 5000);
+    var intervalID = window.setInterval(myCallback, 30000);
 
 
     function myCallback() {
@@ -50,7 +57,7 @@ window.addEventListener('load', function() {
 
             cashAmount = document.getElementById("balance").textContent;
             cashAmount = parseFloat(cashAmount.replace(/,/g, ''));
-            betAmount = Math.round(0.01 * cashAmount);
+            betAmount = CalculateWager(cashAmount);
 
 
             if (strippedDownNumberRedTeam > strippedDownNumberBlueTeam) {
@@ -100,6 +107,11 @@ function GetCash(idToGetCashFrom)
   {
     document.getElementById(idToGetCashFrom).textContent;
     return parseFloat(idToGetCashFrom.replace(/,/g, ''));
+  }
+  
+function CalculateWager(totalCashAmount)
+  {
+    return Math.round(0.005 * cashAmount);
   }
 
 })
