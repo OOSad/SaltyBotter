@@ -100,7 +100,7 @@ function GetCash(idToGetCashFrom)
   
 function CalculateWager(totalCashAmount)
   {
-    return Math.round(0.001 * cashAmount);
+    return Math.round(0.01 * cashAmount);
   }
   
 function TypeInWager(wagerForTheRound)
@@ -112,6 +112,7 @@ function ConfirmWager(onWhoYouAreBettingOn)
   {
     document.getElementById(onWhoYouAreBettingOn).click();
   }
+  
   
 })
 
